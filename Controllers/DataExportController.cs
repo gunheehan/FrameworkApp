@@ -17,6 +17,8 @@ namespace FrameworkApp.Controllers
         /// </summary>
         public DataExportController()
         {
+            // 실제로는 DI Container를 사용해야 하지만
+            // 연습용이므로 직접 생성
             _exportService = new DataExportService();
         }
 
@@ -32,13 +34,43 @@ namespace FrameworkApp.Controllers
         /// <summary>
         /// POST: DataExport/GetPreviewData
         /// 미리보기 데이터 조회 (Ajax 요청)
+        /// ViewModel 형태로 반환하여 동적 렌더링 가능
         /// </summary>
         [HttpPost]
         public JsonResult GetPreviewData()
         {
             try
             {
-                // Service를 통해 데이터 조회
+                // Service를 통해 ViewModel 조회
+                var viewModel = _exportService.GetPreviewData();
+
+                return Json(new
+                {
+                    success = true,
+                    data = viewModel
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        /// <summary>
+        /// POST: DataExport/DownloadJson
+        /// JSON 파일 다운로드용 데이터 조회
+        /// 원본 Model 형태로 반환
+        /// </summary>
+        [HttpPost]
+        public JsonResult DownloadJson()
+        {
+            try
+            {
+                // 원본 데이터 조회
                 var data = _exportService.GetExportData();
 
                 return Json(new

@@ -1,0 +1,99 @@
+﻿<!-- 데이터 미리보기 모달 -->
+<div class="modal fade" id="previewModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+                <h4 class="modal-title">데이터 미리보기</h4>
+            </div>
+            <div class="modal-body">
+                <!-- 기본 정보 영역 -->
+                <div class="alert alert-info" id="basicInfoContainer">
+                    <!-- JavaScript로 동적 생성 -->
+                </div>
+
+                <!-- 동적 탭 네비게이션 -->
+                <ul class="nav nav-tabs" role="tablist" id="dynamicTabs">
+                    <!-- JavaScript로 동적 생성 -->
+                </ul>
+
+                <!-- 동적 탭 컨텐츠 -->
+                <div class="tab-content" id="dynamicTabContent" style="margin-top: 15px;">
+                    <!-- JavaScript로 동적 생성 -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span> 닫기
+                </button>
+                <button type="button" class="btn btn-success" id="btnDownload">
+                    <span class="glyphicon glyphicon-download-alt"></span> JSON 다운로드
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .modal-lg {
+        width: 90%;
+        max-width: 1200px;
+    }
+
+    .table-responsive {
+        max-height: 400px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .summary-card {
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+    }
+
+        .summary-card h4 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .summary-card h2 {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .summary-card.panel-primary h2 {
+            color: #337ab7;
+        }
+
+        .summary-card.panel-success h2 {
+            color: #5cb85c;
+        }
+
+        .summary-card.panel-info h2 {
+            color: #5bc0de;
+        }
+
+        .summary-card.panel-warning h2 {
+            color: #f0ad4e;
+        }
+
+    .glyphicon-refresh-animate {
+        animation: spin 1s infinite linear;
+    }
+
+    @@keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>

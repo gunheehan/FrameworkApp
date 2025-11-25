@@ -127,6 +127,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mapper\DataPreviewMapper.cs" />
+    <Compile Include="Models\DataPreviewViewModel.cs" />
     <Compile Include="Models\ExportDataModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,6 +161,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\dataExport.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.js" />
@@ -187,6 +190,7 @@
     <Content Include="Views\test\ErrorMessageView.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\DataExport\Index.cshtml" />
+    <Content Include="Views\DataExport\_PreviewModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

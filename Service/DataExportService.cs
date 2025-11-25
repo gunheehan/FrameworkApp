@@ -1,4 +1,5 @@
-﻿using FrameworkApp.Models;
+﻿using FrameworkApp.Mapper;
+using FrameworkApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,18 +14,26 @@ namespace FrameworkApp.Service
     public interface IDataExportService
     {
         ExportDataModel GetExportData();
+        DataPreviewViewModel GetPreviewData();
     }
 
     public class DataExportService : IDataExportService
     {
         /// <summary>
-        /// 내보낼 데이터 조회
+        /// 내보낼 데이터 조회 (원본)
         /// </summary>
         public ExportDataModel GetExportData()
         {
-            // 실제로는 Repository를 통해 DB에서 조회
-            // 지금은 데모 데이터 반환
             return GenerateDemoData();
+        }
+
+        /// <summary>
+        /// 미리보기용 데이터 조회 (ViewModel)
+        /// </summary>
+        public DataPreviewViewModel GetPreviewData()
+        {
+            var exportData = GetExportData();
+            return DataPreviewMapper.Map(exportData);
         }
 
         /// <summary>
@@ -132,6 +141,7 @@ namespace FrameworkApp.Service
                 TotalRevenue = 3985000,
                 PendingOrders = 2
             };
+
             return new ExportDataModel
             {
                 ExportDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
@@ -140,7 +150,6 @@ namespace FrameworkApp.Service
                 Order = orders,
                 Summary = summary
             };
-
         }
     }
 }
