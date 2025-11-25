@@ -14,6 +14,12 @@ namespace FrameworkApp
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Login",
+                url: "{Login}",
+                defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Test",
                 url: "test/{action}",
                 defaults: new { controller = "Test", action = "PrintMessage", id = UrlParameter.Optional }
