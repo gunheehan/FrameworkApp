@@ -1,4 +1,5 @@
 ﻿using FrameworkApp.Models;
+using FrameworkApp.Services.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,13 @@ namespace FrameworkApp.Controllers
 
         public string Login(UserModel userModel)
         {
-            return "Result : Username = " + userModel.Username;
+            SecurityService securityService = new SecurityService();
+            Boolean success = securityService.Authenticate(userModel);
+            if (success)
+            {
+                return "Result : Success Login";
+            }
+            return "Result : Fail Login";
         }
     }
 }
