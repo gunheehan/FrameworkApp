@@ -194,6 +194,8 @@
     <Content Include="Views\DataExport\Index.cshtml" />
     <Content Include="Views\DataExport\_PreviewModal.cshtml" />
     <Content Include="Views\test\ErrorMessage.cshtml" />
+    <Content Include="Views\Login\LoginSuccess.cshtml" />
+    <Content Include="Views\Login\Loginfailure.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

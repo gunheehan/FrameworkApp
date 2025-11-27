@@ -16,15 +16,15 @@ namespace FrameworkApp.Controllers
             return View("Login");
         }
 
-        public string Login(UserModel userModel)
+        public ActionResult Login(UserModel userModel)
         {
             SecurityService securityService = new SecurityService();
             Boolean success = securityService.Authenticate(userModel);
             if (success)
             {
-                return "Result : Success Login";
+                return View("LoginSuccess", userModel);
             }
-            return "Result : Fail Login";
+            return View("Loginfailure");
         }
     }
 }
