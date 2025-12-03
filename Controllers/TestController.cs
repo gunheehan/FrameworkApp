@@ -39,5 +39,6 @@ namespace FrameworkApp.Controllers
         {
             return "<h1>Welcome</h1>";
         }
+        // 병합 테스트
     }
 }
