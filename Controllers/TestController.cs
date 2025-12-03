@@ -39,5 +39,7 @@ namespace FrameworkApp.Controllers
         {
             return "<h1>Welcome</h1>";
         }
+        // 병합이 되나
+        // 같은 라인 테스트
     }
 }
